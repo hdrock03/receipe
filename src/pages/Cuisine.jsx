@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
 import { motion } from 'framer-motion'
 import { useParams,Link } from 'react-router-dom'
+// import { motion } from 'framer-motion'
 
 function Cuisine() {
 
@@ -20,7 +21,13 @@ function Cuisine() {
         console.log(recipes.results);
     }
   return (
-    <Grid>
+    // animation ke time me opacity 1 suru me 0 and last me bhi 0 rhega aur duration 0.5 sec hga
+    <Grid 
+        animate={{opacity:1}}
+        initial={{opacity:0}}
+        exit={{opacity:0}}
+        transition={{duration:0.5}}
+    >
         {cuisine.map((item) => (
             <Card key={item.id}>
                 <Link to={'/recipe/' + item.id}>
@@ -36,7 +43,8 @@ function Cuisine() {
 
 // -------------------------STYLED-COMPONENTS-----------------------------
 
-const Grid = styled.div`
+//styled.div ko styled(motion.div) me change kr diye h taki animation daal sake
+const Grid = styled(motion.div)`
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(20rem, 1fr));
     grid-gap: 2rem;

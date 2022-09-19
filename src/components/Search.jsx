@@ -18,6 +18,7 @@ function Search() {
             <input 
             onChange={(e) => setInput(e.target.value)} 
             type='text' 
+            placeholder='Search'
             value={input}/>
         </div>
     </FormStyle>
@@ -33,6 +34,8 @@ const FormStyle = styled.form`
     div{
         width: 100%;
         position:relative;
+        /* border: 1px solid red; */
+        /* z-index: 10; */
         }
 
     input{
