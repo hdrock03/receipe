@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Splide, SplideSlide} from '@splidejs/react-splide'; //used for corousel
 // import '@splidejs/react-splide/css';
 import '@splidejs/splide/dist/css/splide.min.css'
+import { Link } from 'react-router-dom';
 
 function Veggie() {
     const [veggie, setVeggie] = useState([])
@@ -41,10 +42,12 @@ function Veggie() {
                 return(
                     <SplideSlide key={item.id}>
                     <Card>
+                        {/* link me daal diye taki jb bhi title ya image pe click kre to recipe/page pe le jaye */}
+                        <Link to={'/recipe/' + item.id}>
                         <p>{item.title}</p>
                         <img src={item.image} alt={item.title}/>
-                        
                         <Gradient/>
+                        </Link>
                     </Card>
                     </SplideSlide>
                 )
@@ -72,7 +75,7 @@ img{
     position: absolute;
     left: 0;
     width: 100%;
-    height:: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -82,7 +85,7 @@ p{
     left:50%;
     bottom:0%;
     transform: translate(-50%,0%);
-    // color:white;
+     color:white;
     text-align:center;
     font-weight:600;
     font-size: 1rem;

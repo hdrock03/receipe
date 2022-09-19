@@ -3,6 +3,7 @@ import styled from 'styled-components'
 import {Splide, SplideSlide} from '@splidejs/react-splide'; //used for corousel
 // import '@splidejs/react-splide/css';
 import '@splidejs/splide/dist/css/splide.min.css'
+import { Link } from 'react-router-dom';
 
 function Popular() {
 
@@ -37,7 +38,7 @@ function Popular() {
     {/* splide corousel ke liye hai.
     options me perpage dale 4 jisse ek tyme me corousel me 4 image ho  */}
     <Splide options={{
-        perPage:3,
+        perPage:4,
         gap: '5rem',
         arrows:false,
         pagination:false,
@@ -48,9 +49,11 @@ function Popular() {
         return(
             <SplideSlide key={recipe.id}> 
             <Card >
+                <Link to={'/recipe/' + recipe.id}>
                 <p>{recipe.title}</p>
                 <img src={recipe.image} alt={recipe.title}/>
                 <Gradient/>
+                </Link>
             </Card>
             </SplideSlide>
         )
@@ -78,7 +81,7 @@ img{
     position: absolute;
     left: 0;
     width: 100%;
-    height:: 100%;
+    height: 100%;
     object-fit: cover;
 }
 
@@ -88,7 +91,7 @@ p{
     left:50%;
     bottom:0%;
     transform: translate(-50%,0%);
-    // color:white;
+    color:white;
     text-align:center;
     font-weight:600;
     font-size: 1rem;
